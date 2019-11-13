@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Assn10</title>
+
+
+<script>
+	function getJoke(){
+		request = new XMLHttpRequest();
+		console.log("1 - request created");
+
+		request.open("GET", "https://api.sunrise-sunset.org/json?lat=42.366978&lng=-71.022362&date=today", true);
+
+		console.log("2 - opened request file");
+
+		request.onreadystatechange = function(){
+			console.log("3 - readystate event fired");
+
+			if(request.readyState == 4 && request.status == 200){
+				result = request.responseText;
+				sunData = JSON.parse(result);
+				
+				utcSunrise = sunData["results"]["sunrise"];
+				utcSunset = sunData["results"]["sunset"];
+				
+				document.getElementById("sunrise").innerHTML ="Sunrise in Boston today: " + sunData["results"]["sunrise"] + " UTC <br/>"; 
+				document.getElementById("sunset").innerHTML ="Sunset in Boston today: " + sunData["results"]["sunset"] + " UTC <br/>"; 
+
+
+			} else if (request.readyState == 4 && request.status != 200){
+				console.log("Something wrong");
+				//document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+
+			} else if (request.readyState == 3) {
+
+				console.log("Too soon! Try again");
+	//			document.getElementById("data").innerHTML = "Too soon!  Try again";
+
+			} else {
+				console.log("hi");
+			}
+		}
+		request.send();
+		console.log("4 - Request sent");
+	}
+		
+		
+	
+	
+	// Step 3: Setup event handler/callback
+	
+	
+	</script>
+</head>
+
+<body onload="getJoke()">
+API Choice: Sunrise and Sunset Information <br/>
+Description of what it does: Gets the sunrise and sunset information for a specific lattitude and longitude. Displays the data in UTC time. Also can get civil twilight data. <br/>
+Source: https://sunrise-sunset.org/api <br/>
+Options used for API Request: "sunset" and "sunrise"<br/>
+Two applications where it would be useful: <br/> 
+1) On a running website so runners know if it will be daylight when they run. <br/>
+2) On a website for pilots so they know if they are going to fly when it's dark or light <br/> <br/>
+<div id="sunrise"> </div>
+<div id="sunset"> </div>
+</body>
+</html>
