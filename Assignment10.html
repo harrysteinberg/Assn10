@@ -3,7 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Assn10</title>
-
+<style>
+	body{
+		font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif"
+	}
+	
+	h1{
+		text-align: center;
+	}
+	
+	h2{
+		border-left: 100px;
+		margin-left: 100px;
+	}
+	
+	
+	
+</style>
 
 <script>
 	function getJoke(){
@@ -56,14 +72,15 @@
 </head>
 
 <body onload="getJoke()">
-API Choice: Sunrise and Sunset Information <br/>
-Description of what it does: Gets the sunrise and sunset information for a specific lattitude and longitude. Displays the data in UTC time. Also can get civil twilight data. <br/>
-Source: https://sunrise-sunset.org/api <br/>
-Options used for API Request: "sunset" and "sunrise"<br/>
+<h1>API Choice: Sunrise and Sunset Information</h1> <br/>
+<h2>Description of what it does: <br/> Gets the sunrise and sunset information for a specific lattitude and longitude. <br/> Displays the data in UTC time. Also can get civil twilight data. <br/> <br/>
+Source: https://sunrise-sunset.org/api <br/> <br/>
+Options used for API Request: "sunset" and "sunrise"<br/> <br/>
 Two applications where it would be useful: <br/> 
 1) On a running website so runners know if it will be daylight when they run. <br/>
-2) On a website for pilots so they know if they are going to fly when it's dark or light <br/> <br/>
-<div id="sunrise"> </div>
-<div id="sunset"> </div>
+2) On a website for pilots so they know if they are going to fly when it's dark or light <br/> <br/> </h2>
+<h2><div id="sunrise"> </div></h2>
+
+<h2><div id="sunset"> </div> </h2>
 </body>
 </html>
